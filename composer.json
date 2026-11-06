@@ -1,0 +1,63 @@
+{
+    "name": "capturekitdev/sdk",
+    "description": "Official PHP SDK for the CaptureKit screenshot API.",
+    "type": "library",
+    "keywords": [
+        "api",
+        "capturekit",
+        "screenshot-api",
+        "sdk",
+        "url-to-pdf",
+        "web-content",
+        "website-screenshot"
+    ],
+    "homepage": "https://www.capturekit.dev",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "CaptureKit",
+            "email": "contact@capturekit.dev"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/capturekitdev/capturekit-php/issues",
+        "source": "https://github.com/capturekitdev/capturekit-php",
+        "docs": "https://app.capturekit.dev/openapi"
+    },
+    "require": {
+        "php": ">=8.1",
+        "guzzlehttp/guzzle": "^7.8",
+        "guzzlehttp/psr7": "^2.6",
+        "psr/http-client": "^1.0",
+        "psr/http-message": "^1.1 || ^2.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.64",
+        "phpstan/phpstan": "^2.0",
+        "phpunit/phpunit": "^10.5 || ^11.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "CaptureKit\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "CaptureKit\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "analyse": "phpstan analyse --configuration=phpstan.neon.dist --no-progress --memory-limit=1G",
+        "check": [
+            "@format:check",
+            "@analyse",
+            "@test"
+        ],
+        "format": "php-cs-fixer fix --config=.php-cs-fixer.dist.php",
+        "format:check": "php-cs-fixer fix --config=.php-cs-fixer.dist.php --dry-run --diff",
+        "test": "phpunit --configuration=phpunit.xml.dist"
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
